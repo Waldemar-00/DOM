@@ -1,19 +1,29 @@
 .wrapper {
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
     padding: 2rem 5rem;
     border: 2px solid #ccc;
-    gap: 10px;
 }
-.user {
+.middle {
     display: flex;
     padding: 2rem 5rem;
     border: 2px solid #ccc;
 }
+
 .inner {
     display: flex;
-    padding: 1rem 5rem;
+    padding: 2rem 5rem;
     border: 2px solid #ccc;
+}
+
+.btn {
+    background-color: white;
+     border: 2px solid #777;
+     color: #ccc;
+     padding: 0.5rem 1rem;
+     transition: transform 0.2s
+}
+.btn:active {
+    transform: scale(0.95);
 }

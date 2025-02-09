@@ -1,31 +1,42 @@
 'use strict'
+const wrapper = document.querySelector( '.wrapper' )
 
-function getElement ( selector )
+for ( let i = 0; i < 100; i++ )
 {
-    const element = document.querySelector( selector )
-    return element
+    const div = document.createElement( 'div' )
+    div.classList.add('inner')
+    div.textContent = `User with id: ${ i + 1000 }`
+    wrapper.append( div )
+
+    //! bad code below
+    //* div.addEventListener( 'click', () => div.remove() )
+    //! Here we have one function for every User, in total - 100
 }
-function addListener ( element, handleEvent, func )
-{
-    element.addEventListener( handleEvent, func, false )
-}
-function callBackChangeStyle ( element, style, value)
-{
-    console.log( element )
-    element.style[style] = value
-}
-const button = getElement( '.btn' )
-addListener( button, 'click', ( e ) =>
-{
-    callBackChangeStyle( button, 'backgroundColor', 'purple' )
-    e.stopPropagation()
-} )
 
-const innerDiv = getElement( '.inner' )
-addListener( innerDiv, 'click', () => callBackChangeStyle( innerDiv, 'backgroundColor', 'orange' ) )
+//! ONLY one function for ALL Users!!!!!!!!!
+wrapper.addEventListener( 'click', ( e ) => e.target.remove() ) //* DELEGATION
 
-const middleDiv = getElement( '.middle' )
-addListener( middleDiv, 'click', () => callBackChangeStyle( middleDiv, 'backgroundColor', 'lightBlue' ) )
+//! ONLY one function for ALL Users!!!!!!!!!
 
-const wrapperDiv = getElement( '.wrapper' )
-addListener(wrapperDiv, 'click', () => callBackChangeStyle(wrapperDiv, 'backgroundColor', 'yellow'))
+//! well be contain: document, elements, texts, comments
+console.log( wrapper.childNodes ) //! Here NodeList contains texts AND elements ( divs )
+console.log( wrapper.children ) //! HTMLCollection contains only elements ( divs )
+
+
+console.log( wrapper.parentNode )
+console.log( wrapper.parentElement )
+
+console.log( wrapper.closest( 'div' ) )
+console.log( wrapper.closest( 'body' ) )
+console.log( wrapper.closest( 'h1' ) ) //! null the same level
+console.log( wrapper.closest( '.wrapper' ) )
+
+//! the same level - By siblings
+console.log('The _________same level');
+
+console.log( wrapper.previousElementSibling )
+console.log( wrapper.previousSibling )
+console.log( wrapper.nextElementSibling )
+console.log( wrapper.nextSibling ) //! text includs ' ', '\n' and act.
+
+console.log( wrapper.parentElement.children[2] )
