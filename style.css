@@ -1,24 +1,29 @@
-body {
+.wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    padding: 2rem 5rem;
+    border: 2px solid #ccc;
 }
-h1 {
-    color: red;
+.middle {
+    display: flex;
+    padding: 2rem 5rem;
+    border: 2px solid #ccc;
 }
-.btn_get{
-    display: block;
-    position: sticky;
-    top: 50px;
-    margin-right: 300px;
-    padding: 0.5rem 1rem;
-    background-color: rgb(129, 120, 120);
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
+
+.inner {
+    display: flex;
+    padding: 2rem 5rem;
+    border: 2px solid #ccc;
 }
-.div_test {
-    padding: 0.5rem 1rem;
-    font-size: 20px;
+
+.btn {
+    background-color: white;
+     border: 2px solid #777;
+     color: #ccc;
+     padding: 0.5rem 1rem;
+     transition: transform 0.2s
+}
+.btn:active {
+    transform: scale(0.95);
 }

@@ -1,56 +1,31 @@
 'use strict'
-//* console.log( document )
-//* console.log( document.documentElement )
-//* console.log( document.querySelectorAll( 'meta' ) )
 
-function createElement ( element, indentifier, text, attribute, value )
+function getElement ( selector )
 {
-    const button = document.createElement( element )
-    button.classList.add( indentifier )
-    button.textContent = text
-    button.setAttribute( attribute, value )
-    return button
-}
-placeElementInBody( createElement( 'button', 'btn_get', 'Get scroll', 'type', 'button' ) )
-    .addEventListener( 'click', getOffset )
-
-function placeElementInBody ( element )
-{
-    document.querySelector( 'body' ).append( element )
+    const element = document.querySelector( selector )
     return element
 }
-
-function placeDivsOnPage (amount)
+function addListener ( element, handleEvent, func )
 {
-    for ( let i = 0; i < amount; i++ )
-    {
-       placeElementInBody( createElement( 'div', 'div_test', `${ i+1 }` ) )
-    }
+    element.addEventListener( handleEvent, func, false )
 }
-placeDivsOnPage( 20 )
-
-function getOffset ( event )
+function callBackChangeStyle ( element, style, value)
 {
-    //* console.log( `ScrollX: ${ window.scrollX }` )
-    //* console.log( `ScrollY: ${ window.scrollY }` )
-
-    //* console.log( `ClientWidth: ${ document.documentElement.clientWidth }` )
-    //* console.log( `ClientHeight: ${ document.documentElement.clientHeight }` )
-
-    //* console.log( event.target.getBoundingClientRect() )
-
-    const lastElement = document.querySelector( 'body' ).lastChild
-
-    console.log( `ScrollY: ${ window.scrollY }` )
-    //! ONLY VIEWPORT: x, y or top and left
-    console.log( lastElement.getBoundingClientRect() )
-    //! ONLY VIEWPORT: x, y or top and left
-
-    window.scrollTo( {
-        top: lastElement.getBoundingClientRect().y + window.scrollY,
-        //!viewport.y + scrollY = all height of document
-        left: 0,
-        behavior: 'smooth'
-    })
-
+    console.log( element )
+    element.style[style] = value
 }
+const button = getElement( '.btn' )
+addListener( button, 'click', ( e ) =>
+{
+    callBackChangeStyle( button, 'backgroundColor', 'purple' )
+    e.stopPropagation()
+} )
+
+const innerDiv = getElement( '.inner' )
+addListener( innerDiv, 'click', () => callBackChangeStyle( innerDiv, 'backgroundColor', 'orange' ) )
+
+const middleDiv = getElement( '.middle' )
+addListener( middleDiv, 'click', () => callBackChangeStyle( middleDiv, 'backgroundColor', 'lightBlue' ) )
+
+const wrapperDiv = getElement( '.wrapper' )
+addListener(wrapperDiv, 'click', () => callBackChangeStyle(wrapperDiv, 'backgroundColor', 'yellow'))
