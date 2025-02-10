@@ -7,3 +7,13 @@
     border: 2px solid #ccc;
     gap: 10px;
 }
+.user {
+    display: flex;
+    padding: 2rem 5rem;
+    border: 2px solid #ccc;
+}
+.inner {
+    display: flex;
+    padding: 1rem 5rem;
+    border: 2px solid #ccc;
+}
