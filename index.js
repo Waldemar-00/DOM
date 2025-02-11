@@ -1,18 +1,26 @@
-'use strict'
+// window.addEventListener( 'load', function ()
+// {
+    const fruit = [ 'banana', 'orange', 'apple', 'peach', 'pineapple', 'mango', 'cherry', 'strawbbery' ]
 
-document.addEventListener( 'DOMContentLoaded', function ( e )
-{
-    console.log( e, 'DOMContentLoaded' )
-} )
+    const list = document.querySelector('.list')
+    const lis = fruit.map( ( ( fruit, index ) =>
+    {
+        const li = document.createElement( 'li' )
+        li.textContent = `${ index + 1 }. ${ fruit }`
+        return li
+    } ) )
 
-window.addEventListener( 'load', function ( e )
-{
-    console.log( e, 'load' )
-} )
+    list.append( ...lis )
 
+    const seacher = document.querySelector( '#seacher' )
 
-window.addEventListener( 'beforeunload', function ( e )
-{
-    e.preventDefault()
-    e.returnValue = ''
-})
+    seacher.addEventListener( 'input', function ( e )
+    {
+        lis.forEach( l => l.classList.remove( 'purple' ) )
+        const value = e.target.value
+        if( !value ) return
+        const filterLis = lis.filter( l => l.textContent.includes( value ) )
+        filterLis.forEach( l => l.classList.add( 'purple' ) )
+
+    })
+// })

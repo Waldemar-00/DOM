@@ -1,0 +1,9 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 5rem;
+    border: 2px solid #ccc;
+    gap: 10px;
+}

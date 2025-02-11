@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="shortcut icon" href="js-svgrepo-com.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="index.js"></script>
+    <!--Without attributes like async or defer - First will work-->
+    <!--ASYNC( async ) - WITHOUT building HTML - Second will work-->
+    <!--DEFER( async ) - before DOMContentLoad - Third will work-->
+    <!--DOMContenLoad - after building HTML and analisis of it - Fours will work-->
+    <!--Load - will work after all data for page ( includes styles, photos and act. ) - will work Last-->
+    <!--Module - after DOMContenLoad will work and analisis -->
+    <!--Or you can place JS after all elements in the body-->
 </head>
 <body>
-    <h1>Hi, Delegation!</h1>
-    <div class='wrapper'>
-
+    <h1>Task: search</h1>
+    <div class='seacher'>
+        <input type="text" placeholder="Search" id="seacher">
     </div>
+    <ul class="list"></ul>
 </body>
 </html>
