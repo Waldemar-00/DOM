@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="js-svgrepo-com.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="index.js"></script>
+
+    <!--ASYNC( async ) - WITHOUT building HTML - First will work-->
+    <!--DEFER( async ) - before DOMContentLoad - Second will work-->
+    <!--DOMContenLoad - after building HTML and analisis of it - Third will work-->
+    <!--Load - will work after all data for page ( includes styles, photos and act. ) - will work Last-->
+    <!--Module - after DOMContenLoad will work and analisis -->
+    <!--Or you can place JS after all elements in the body-->
+
+</head>
+<body>
+    <h1>Task: search</h1>
+    <div class='seacher'>
+        <input type="text" placeholder="Search" id="seacher">
+    </div>
+    <ul class="list"></ul>
+</body>
+</html>
